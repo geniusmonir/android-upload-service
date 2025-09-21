@@ -3,11 +3,8 @@ package net.gotev.uploadservice.observer.task
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
-import android.media.RingtoneManager
-import android.os.Build
 import androidx.core.app.NotificationCompat
 import net.gotev.uploadservice.UploadService
-import net.gotev.uploadservice.UploadServiceConfig.namespace
 import net.gotev.uploadservice.UploadServiceConfig.placeholdersProcessor
 import net.gotev.uploadservice.data.UploadInfo
 import net.gotev.uploadservice.data.UploadNotificationConfig
@@ -25,7 +22,6 @@ class NotificationHandler(private val service: UploadService) : UploadTaskObserv
     private val notificationManager by lazy {
         service.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
-
 
     private fun NotificationCompat.Builder.notify(uploadId: String, notificationId: Int) {
         build().apply {
@@ -88,7 +84,6 @@ class NotificationHandler(private val service: UploadService) : UploadTaskObserv
         notificationConfig: UploadNotificationConfig,
         response: ServerResponse
     ) {
-        
     }
 
     override fun onError(

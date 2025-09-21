@@ -133,7 +133,7 @@ object UploadServiceConfig {
             isRingToneEnabled = false,
             progress = UploadNotificationStatusConfig(
                 title = title,
-                message = "",
+                message = ""
             ),
             success = UploadNotificationStatusConfig(
                 title = title,
