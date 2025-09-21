@@ -34,7 +34,7 @@ abstract class AbstractSingleNotificationHandler(
     ) : Parcelable
 
     private val tasks = ConcurrentHashMap<String, TaskData>()
-    private const val CHANNEL_GROUP = "EBM_NOTIFICATION_CH_GROUP"
+    private val CHANNEL_GROUP = "EBM_NOTIFICATION_CH_GROUP"
 
     private val notificationManager by lazy {
         service.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
