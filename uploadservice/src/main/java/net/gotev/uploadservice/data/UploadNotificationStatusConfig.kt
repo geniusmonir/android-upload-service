@@ -27,7 +27,7 @@ data class UploadNotificationStatusConfig @JvmOverloads constructor(
     /**
      * Notification icon.
      */
-    @DrawableRes val iconResourceID: Int = android.R.drawable.ic_menu_upload,
+    @DrawableRes val iconResourceID: Int = android.R.drawable.ic_dialog_info,
 
     /**
      * Icon color tint.

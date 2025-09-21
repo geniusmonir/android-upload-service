@@ -27,6 +27,9 @@ class UploadService : Service() {
         internal val TAG = UploadService::class.java.simpleName
 
         private const val UPLOAD_NOTIFICATION_BASE_ID = 1234 // Something unique
+        private const val CHANNEL_ID = "EBM_NOTIFICATION_CH"
+        private const val CHANNEL_NAME = "EBM_NOTIFICATION_CH_NAME"
+        private const val CHANNEL_GROUP = "EBM_NOTIFICATION_CH_GROUP"
 
         private var notificationIncrementalId = 0
         private val uploadTasksMap = ConcurrentHashMap<String, UploadTask>()
@@ -213,10 +216,10 @@ class UploadService : Service() {
             "Starting UploadService. Debug info: $UploadServiceConfig"
         }
 
-        val builder = NotificationCompat.Builder(this, UploadServiceConfig.defaultNotificationChannel!!)
-            .setSmallIcon(android.R.drawable.ic_menu_upload)
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setOngoing(true)
-            .setGroup(UploadServiceConfig.namespace)
+            .setGroup(CHANNEL_GROUP)
 
         if (SDK_INT >= 31) {
             builder.foregroundServiceBehavior = Notification.FOREGROUND_SERVICE_IMMEDIATE
@@ -243,7 +246,7 @@ class UploadService : Service() {
 
         val currentTask = getUploadTask(
             creationParameters = taskCreationParameters,
-            notificationId = UPLOAD_NOTIFICATION_BASE_ID + notificationIncrementalId,
+            notificationId = UPLOAD_NOTIFICATION_BASE_ID
             observers = taskObservers
         ) ?: return shutdownIfThereArentAnyActiveTasks()
 

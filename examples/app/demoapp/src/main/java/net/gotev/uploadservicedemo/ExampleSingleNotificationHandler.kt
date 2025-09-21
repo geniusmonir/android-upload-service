@@ -16,6 +16,6 @@ class ExampleSingleNotificationHandler(service: UploadService) :
         return notificationBuilder
             .setContentTitle("${tasks.size} Uploads")
             .setContentText("${tasks.values.count { it.status == TaskStatus.InProgress }} in progress")
-            .setSmallIcon(android.R.drawable.ic_menu_upload)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
     }
 }

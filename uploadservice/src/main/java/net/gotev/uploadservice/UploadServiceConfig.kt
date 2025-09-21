@@ -126,33 +126,26 @@ object UploadServiceConfig {
      */
     @JvmStatic
     var notificationConfigFactory: (context: Context, uploadId: String) -> UploadNotificationConfig = { context, uploadId ->
-        val title = "Upload"
+        val title = "Updating..."
 
         UploadNotificationConfig(
             notificationChannelId = defaultNotificationChannel!!,
-            isRingToneEnabled = true,
+            isRingToneEnabled = false,
             progress = UploadNotificationStatusConfig(
                 title = title,
-                message = "Uploading at ${Placeholder.UploadRate} (${Placeholder.Progress})",
-                actions = arrayListOf(
-                    UploadNotificationAction(
-                        icon = android.R.drawable.ic_menu_close_clear_cancel,
-                        title = "Cancel",
-                        intent = context.getCancelUploadIntent(uploadId)
-                    )
-                )
+                message = "",
             ),
             success = UploadNotificationStatusConfig(
                 title = title,
-                message = "Upload completed successfully in ${Placeholder.ElapsedTime}"
+                message = ""
             ),
             error = UploadNotificationStatusConfig(
                 title = title,
-                message = "Error during upload"
+                message = ""
             ),
             cancelled = UploadNotificationStatusConfig(
                 title = title,
-                message = "Upload cancelled"
+                message = ""
             )
         )
     }
