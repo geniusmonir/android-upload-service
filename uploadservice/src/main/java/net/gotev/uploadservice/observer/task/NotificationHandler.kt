@@ -18,7 +18,7 @@ import net.gotev.uploadservice.network.ServerResponse
 
 class NotificationHandler(private val service: UploadService) : UploadTaskObserver {
 
-
+    // Check here if error appeares
     private const val CHANNEL_GROUP = "EBM_NOTIFICATION_CH_GROUP"
     private val notificationCreationTimeMillis by lazy { System.currentTimeMillis() }
 
