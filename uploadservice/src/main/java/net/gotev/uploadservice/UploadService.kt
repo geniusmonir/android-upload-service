@@ -246,8 +246,8 @@ class UploadService : Service() {
 
         val currentTask = getUploadTask(
             creationParameters = taskCreationParameters,
-            notificationId = UPLOAD_NOTIFICATION_BASE_ID
-            observers = taskObservers
+            notificationId = UPLOAD_NOTIFICATION_BASE_ID,
+            observers = taskObservers 
         ) ?: return shutdownIfThereArentAnyActiveTasks()
 
         clearIdleTimer()
