@@ -5,10 +5,8 @@ import android.content.Context
 import android.content.IntentFilter
 import android.os.Build
 import net.gotev.uploadservice.data.RetryPolicyConfig
-import net.gotev.uploadservice.data.UploadNotificationAction
 import net.gotev.uploadservice.data.UploadNotificationConfig
 import net.gotev.uploadservice.data.UploadNotificationStatusConfig
-import net.gotev.uploadservice.extensions.getCancelUploadIntent
 import net.gotev.uploadservice.logger.UploadServiceLogger
 import net.gotev.uploadservice.network.HttpStack
 import net.gotev.uploadservice.network.hurl.HurlStack
@@ -16,7 +14,6 @@ import net.gotev.uploadservice.observer.request.NotificationActionsObserver
 import net.gotev.uploadservice.observer.task.NotificationHandler
 import net.gotev.uploadservice.observer.task.UploadTaskObserver
 import net.gotev.uploadservice.placeholders.DefaultPlaceholdersProcessor
-import net.gotev.uploadservice.placeholders.Placeholder
 import net.gotev.uploadservice.placeholders.PlaceholdersProcessor
 import net.gotev.uploadservice.schemehandlers.ContentResolverSchemeHandler
 import net.gotev.uploadservice.schemehandlers.FileSchemeHandler
