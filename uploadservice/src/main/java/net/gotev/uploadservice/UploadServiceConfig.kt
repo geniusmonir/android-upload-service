@@ -61,6 +61,26 @@ object UploadServiceConfig {
     }
 
     /**
+     * Ensures namespace and defaultNotificationChannel are set.
+     * Called defensively by UploadService.onCreate() to handle the case where the system
+     * restarts the service after a process kill, before initialize() has been called.
+     * Uses try-catch because the property getters throw if the value is null.
+     */
+    @JvmStatic
+    fun ensureInitialized(context: Application, fallbackNotificationChannel: String) {
+        try {
+            namespace
+        } catch (_: IllegalArgumentException) {
+            namespace = context.packageName
+        }
+        try {
+            defaultNotificationChannel
+        } catch (_: IllegalArgumentException) {
+            defaultNotificationChannel = fallbackNotificationChannel
+        }
+    }
+
+    /**
      * Namespace with which Upload Service is going to operate. This must be set in application
      * subclass onCreate method before anything else.
      */

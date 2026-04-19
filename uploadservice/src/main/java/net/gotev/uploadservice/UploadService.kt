@@ -203,6 +203,9 @@ class UploadService : Service() {
     override fun onCreate() {
         super.onCreate()
 
+        // Auto-recover namespace if process was killed and restarted by the system. Without this, accessing UploadServiceConfig.namespace throws because initialize() was never called in the new process.
+        UploadServiceConfig.ensureInitialized(application, CHANNEL_ID)
+
         wakeLock = acquirePartialWakeLock(wakeLock, TAG)
         notificationActionsObserver.register()
     }
